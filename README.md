@@ -11,10 +11,8 @@ The plugin adds a set of controls to the class menu to set a color scheme for al
 - All emblems are set to the current school emblems
 - The checkboxes at the bottom lets you choose which options you want to apply.
 
-## Note
-The apply button works on the currently selected class only. If you want to apply
-
 ## Planned additions:
+- Changing uniforms of background characters
 - Customizing which parts are considered a uniform.
 - Possibly support for swimsuits / Gym clothes
 
