@@ -23,7 +23,6 @@ The plugin adds a set of controls to the class menu to set a color scheme for al
 ## Planned additions:
 - Changing uniforms of background characters
 - Customizing which parts are considered a uniform.
-- Possibly support for swimsuits / gym clothes
 
 ## Thanks to:
 - ManlyMarco

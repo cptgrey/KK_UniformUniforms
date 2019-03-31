@@ -113,7 +113,7 @@ namespace KK_UniformUniforms
         private static bool _changePE = true;
         private static bool _bottomToggle = false;
         private static int _togglewidth = 57;
-        private static int _guiOffset = 200;
+        private static int _guiOffset = 165;
         private static int _advancedMenuHeight = 457;
         private static int _width = 165;
         private static int _widthlim = 155;
@@ -246,35 +246,51 @@ namespace KK_UniformUniforms
 
                             _advanced = GUILayout.Toggle(_advanced, "Advanced Controls");
                             if (_advanced) AdvancedColor();
+                            GUILayout.BeginVertical(GUI.skin.box);
+                            {
+                                GUILayout.Label("Outfits to change");
+                                _changeSchool = GUILayout.Toggle(_changeSchool, "School");
+                                _changeGoingHome = GUILayout.Toggle(_changeGoingHome, "Going Home");
+                                _changePE = GUILayout.Toggle(_changePE, "PE");
+                                _changeSwimsuit = GUILayout.Toggle(_changeSwimsuit, "Swimsuit");
+                            }
+                            GUILayout.EndVertical();
 
-                            GUILayout.Label("Outfits to change");
-                            _changeSchool = GUILayout.Toggle(_changeSchool, "School");
-                            _changeGoingHome = GUILayout.Toggle(_changeGoingHome, "Going Home");
-                            _changePE = GUILayout.Toggle(_changePE, "PE");
-                            _changeSwimsuit = GUILayout.Toggle(_changeSwimsuit, "Swimsuit");
+                            GUILayout.BeginVertical(GUI.skin.box);
+                            {
+                                GUILayout.Label("Parts to change");
+                                GUILayout.BeginHorizontal();
+                                _changeTop = GUILayout.Toggle(_changeTop, "Top", GUILayout.Width(_togglewidth));
+                                _changeBottom = GUILayout.Toggle(_changeBottom, "Bottom", GUILayout.Width(_togglewidth));
+                                GUILayout.EndHorizontal();
+                            }
+                            GUILayout.EndVertical();
 
-                            GUILayout.Label("Parts to change");
-                            GUILayout.BeginHorizontal();
-                            _changeTop = GUILayout.Toggle(_changeTop, "Top", GUILayout.Width(_togglewidth));
-                            _changeBottom = GUILayout.Toggle(_changeBottom, "Bottom", GUILayout.Width(_togglewidth));
-                            GUILayout.EndHorizontal();
+                            GUILayout.BeginVertical(GUI.skin.box);
+                            {
+                                GUILayout.Label("Colors to change");
+                                GUILayout.BeginHorizontal();
+                                _changeColorTop = GUILayout.Toggle(_changeColorTop, "Top", GUILayout.Width(_togglewidth));
+                                _changeColorBottom = GUILayout.Toggle(_changeColorBottom, "Bottom", GUILayout.Width(_togglewidth));
+                                GUILayout.EndHorizontal();
+                            }
+                            GUILayout.EndVertical();
 
-                            GUILayout.Label("Colors to change");
-                            GUILayout.BeginHorizontal();
-                            _changeColorTop = GUILayout.Toggle(_changeColorTop, "Top", GUILayout.Width(_togglewidth));
-                            _changeColorBottom = GUILayout.Toggle(_changeColorBottom, "Bottom", GUILayout.Width(_togglewidth));
-                            GUILayout.EndHorizontal();
+                            GUILayout.BeginVertical(GUI.skin.box);
+                            {
+                                GUILayout.Label("Lock uniform");
+                                GUILayout.BeginHorizontal();
+                                _strictUniform = GUILayout.Toggle(_strictUniform == 1, "Blazer", GUILayout.Width(_togglewidth)) ? 1 : _strictUniform == 2 ? 2 : 0;
+                                _strictUniform = GUILayout.Toggle(_strictUniform == 2, "Sailor", GUILayout.Width(_togglewidth)) ? 2 : _strictUniform == 1 ? 1 : 0;
+                                GUILayout.EndHorizontal();
+                            }
+                            GUILayout.EndVertical();
 
-                            GUILayout.Label("Lock uniform");
-                            GUILayout.BeginHorizontal();
-                            _strictUniform = GUILayout.Toggle(_strictUniform == 1, "Blazer", GUILayout.Width(_togglewidth)) ? 1 : _strictUniform == 2 ? 2 : 0;
-                            _strictUniform = GUILayout.Toggle(_strictUniform == 2, "Sailor", GUILayout.Width(_togglewidth)) ? 2 : _strictUniform == 1 ? 1 : 0;
-                            GUILayout.EndHorizontal();
+                            _changeEmblem = GUILayout.Toggle(_changeEmblem, "Change Emblem");
 
                             if (GUILayout.Button("Apply to Selected")) ApplySettings(Apply.Card);
                             if (GUILayout.Button("Apply to Class")) ApplySettings(Apply.Class);
                             if (GUILayout.Button("Apply to All")) ApplySettings(Apply.All);
-                            _changeEmblem = GUILayout.Toggle(_changeEmblem, "Change Emblem");
                         }
                         GUILayout.EndVertical();
                         GUILayout.Space(24);
@@ -287,81 +303,83 @@ namespace KK_UniformUniforms
 
         private static void AdvancedColor()
         {
-            GUILayout.Label("Select Outfit");
-            GUILayout.BeginHorizontal();
-            _guiCurrClothing = GUILayout.Toggle(_guiCurrClothing == ColorKeys.MainTop || _guiCurrClothing == ColorKeys.MainBottom, "School", GUILayout.Width(_togglewidth)) ? 
-                ColorKeys.MainTop : _guiCurrClothing;
-            _guiCurrClothing = GUILayout.Toggle(_guiCurrClothing == ColorKeys.PETop || _guiCurrClothing == ColorKeys.PEBottom, "PE", GUILayout.Width(_togglewidth)) ? 
-                ColorKeys.PETop : _guiCurrClothing;
-            GUILayout.EndHorizontal();
-            _guiCurrClothing = GUILayout.Toggle(_guiCurrClothing == ColorKeys.SwimsuitTop || _guiCurrClothing == ColorKeys.SwimsuitBottom, "Swimsuit") ?
-                ColorKeys.SwimsuitTop : _guiCurrClothing;
-            GUILayout.Space(5);
-
-            GUILayout.Label("Select Part Color");
-            GUILayout.BeginHorizontal();
-            _guiCurrIndex = GUILayout.Toggle(_guiCurrIndex == 0 || _guiCurrIndex == 4, "1") ? 0 : _guiCurrIndex;
-            _guiCurrIndex = GUILayout.Toggle(_guiCurrIndex == 1 || _guiCurrIndex == 5, "2") ? 1 : _guiCurrIndex;
-            _guiCurrIndex = GUILayout.Toggle(_guiCurrIndex == 2 || _guiCurrIndex == 6, "3") ? 2 : _guiCurrIndex;
-            _guiCurrIndex = GUILayout.Toggle(_guiCurrIndex == 3 || _guiCurrIndex == 7, "4") ? 3 : _guiCurrIndex;
-            GUILayout.EndHorizontal();
-            if (_patternToggle) _guiCurrIndex += 4;
-            GUILayout.Space(5);
-
-            if (_guiCurrClothing != ColorKeys.SwimsuitTop)
+            GUILayout.BeginVertical(GUI.skin.box);
             {
+                GUILayout.Label("Select Outfit");
                 GUILayout.BeginHorizontal();
-                _bottomToggle = !GUILayout.Toggle(!_bottomToggle, "Top", GUILayout.Width(_togglewidth));
-                _bottomToggle = GUILayout.Toggle(_bottomToggle, "Bottom", GUILayout.Width(_togglewidth));
+                _guiCurrClothing = GUILayout.Toggle(_guiCurrClothing == ColorKeys.MainTop || _guiCurrClothing == ColorKeys.MainBottom, "School", GUILayout.Width(_togglewidth)) ?
+                    ColorKeys.MainTop : _guiCurrClothing;
+                _guiCurrClothing = GUILayout.Toggle(_guiCurrClothing == ColorKeys.PETop || _guiCurrClothing == ColorKeys.PEBottom, "PE", GUILayout.Width(_togglewidth)) ?
+                    ColorKeys.PETop : _guiCurrClothing;
                 GUILayout.EndHorizontal();
-                if (_bottomToggle) _guiCurrClothing += 1;
+                _guiCurrClothing = GUILayout.Toggle(_guiCurrClothing == ColorKeys.SwimsuitTop || _guiCurrClothing == ColorKeys.SwimsuitBottom, "Swimsuit") ?
+                    ColorKeys.SwimsuitTop : _guiCurrClothing;
+
+                GUILayout.Label("Select Part Color");
+                GUILayout.BeginHorizontal();
+                _guiCurrIndex = GUILayout.Toggle(_guiCurrIndex == 0 || _guiCurrIndex == 4, "1") ? 0 : _guiCurrIndex;
+                _guiCurrIndex = GUILayout.Toggle(_guiCurrIndex == 1 || _guiCurrIndex == 5, "2") ? 1 : _guiCurrIndex;
+                _guiCurrIndex = GUILayout.Toggle(_guiCurrIndex == 2 || _guiCurrIndex == 6, "3") ? 2 : _guiCurrIndex;
+                _guiCurrIndex = GUILayout.Toggle(_guiCurrIndex == 3 || _guiCurrIndex == 7, "4") ? 3 : _guiCurrIndex;
+                GUILayout.EndHorizontal();
+
+                if (_patternToggle) _guiCurrIndex += 4;
+                if (_guiCurrClothing != ColorKeys.SwimsuitTop)
+                {
+                    GUILayout.BeginHorizontal();
+                    _bottomToggle = !GUILayout.Toggle(!_bottomToggle, "Top", GUILayout.Width(_togglewidth));
+                    _bottomToggle = GUILayout.Toggle(_bottomToggle, "Bottom", GUILayout.Width(_togglewidth));
+                    GUILayout.EndHorizontal();
+                    if (_bottomToggle) _guiCurrClothing += 1;
+                }
+                else GUILayout.Space(22);
+
+                if (_guiHSV)
+                {
+                    Color.RGBToHSV(_colorDict[_guiCurrClothing][_guiCurrIndex], out float H, out float S, out float V);
+                    float[] hsv = SetGUISliderTextures(H, S, V, true);
+                    _colorDict[_guiCurrClothing][_guiCurrIndex] = Color.HSVToRGB(hsv[0], hsv[1], hsv[2]);
+                }
+                else
+                {
+                    float[] rgb = SetGUISliderTextures(
+                        _colorDict[_guiCurrClothing][_guiCurrIndex].r,
+                        _colorDict[_guiCurrClothing][_guiCurrIndex].g,
+                        _colorDict[_guiCurrClothing][_guiCurrIndex].b,
+                        false
+                    );
+                    _colorDict[_guiCurrClothing][_guiCurrIndex].r = rgb[0];
+                    _colorDict[_guiCurrClothing][_guiCurrIndex].g = rgb[1];
+                    _colorDict[_guiCurrClothing][_guiCurrIndex].b = rgb[2];
+                }
+                _colorDict[_guiCurrClothing][_guiCurrIndex].a = 1;
+
+                GUILayout.BeginHorizontal();
+                _patternToggle = !GUILayout.Toggle(!_patternToggle, "Main");
+                _patternToggle = GUILayout.Toggle(_patternToggle, "Pattern");
+                GUILayout.EndHorizontal();
+
+                Texture2D tex = new Texture2D(65, 65);
+                for (int x = 1; x <= 65; x++)
+                    for (int y = 1; y <= 65; y++)
+                        tex.SetPixel(x, y, _colorDict[_guiCurrClothing][_guiCurrIndex]);
+                tex.Apply();
+                tex.wrapMode = TextureWrapMode.Repeat;
+
+                if (GUILayout.Button(_guiHSV ? "To RGB" : "To HSV")) { _guiHSV = !_guiHSV; };
+                GUILayout.Space(5);
+                GUILayout.Box(tex);
+                GUILayout.Space(5);
+
+                GUILayout.BeginHorizontal();
+                if (GUILayout.Button("Copy")) { _copy = _colorDict[_guiCurrClothing][_guiCurrIndex]; };
+                if (GUILayout.Button("Paste")) { _colorDict[_guiCurrClothing][_guiCurrIndex] = _copy; };
+                GUILayout.EndHorizontal();
+                if (GUILayout.Button("Auto Pattern Colors")) SetDarkerPatternColors();
             }
-            else GUILayout.Space(22);
-
-            if (_guiHSV)
-            {
-                Color.RGBToHSV(_colorDict[_guiCurrClothing][_guiCurrIndex], out float H, out float S, out float V);
-                float[] hsv = SetGUISliderTextures(H, S, V, true);
-                _colorDict[_guiCurrClothing][_guiCurrIndex] = Color.HSVToRGB(hsv[0], hsv[1], hsv[2]);
-            }
-            else
-            {
-                float[] rgb = SetGUISliderTextures(
-                    _colorDict[_guiCurrClothing][_guiCurrIndex].r,
-                    _colorDict[_guiCurrClothing][_guiCurrIndex].g,
-                    _colorDict[_guiCurrClothing][_guiCurrIndex].b,
-                    false
-                );
-                _colorDict[_guiCurrClothing][_guiCurrIndex].r = rgb[0];
-                _colorDict[_guiCurrClothing][_guiCurrIndex].g = rgb[1];
-                _colorDict[_guiCurrClothing][_guiCurrIndex].b = rgb[2];
-            }
-            _colorDict[_guiCurrClothing][_guiCurrIndex].a = 1;
-
-            GUILayout.BeginHorizontal();
-            _patternToggle = !GUILayout.Toggle(!_patternToggle, "Main");
-            _patternToggle = GUILayout.Toggle(_patternToggle, "Pattern");
-            GUILayout.EndHorizontal();
-
-            Texture2D tex = new Texture2D(65, 65);
-            for (int x = 1; x <= 65; x++)
-                for (int y = 1; y <= 65; y++)
-                    tex.SetPixel(x, y, _colorDict[_guiCurrClothing][_guiCurrIndex]);
-            tex.Apply();
-            tex.wrapMode = TextureWrapMode.Repeat;
-
-            if (GUILayout.Button(_guiHSV ? "To RGB" : "To HSV")) { _guiHSV = !_guiHSV; };
-            GUILayout.Space(5);
-            GUILayout.Box(tex);
-            GUILayout.Space(5);
-
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Copy")) { _copy = _colorDict[_guiCurrClothing][_guiCurrIndex]; };
-            if (GUILayout.Button("Paste")) { _colorDict[_guiCurrClothing][_guiCurrIndex] = _copy; };
-            GUILayout.EndHorizontal();
-            if (GUILayout.Button("Auto Pattern Colors")) SetDarkerPatternColors();
+            GUILayout.EndVertical();
         }
-        
+
 
         private static float[] SetGUISliderTextures(float x, float y, float z, bool hsv = false)
         {
@@ -500,12 +518,19 @@ namespace KK_UniformUniforms
                 }
 
                 // Change Tops
-                if (_changeTop && !tops.Contains(currParts[Clothes.Top].id))
+                if (_strictUniform == 0)
                 {
-                    currParts[Clothes.Top].id = _strictUniform == 0 ? tops[Rand.Next(tops.Count)] : _strictUniform;
+                    if (_changeTop && !tops.Contains(currParts[Clothes.Top].id))
+                    {
+                        currParts[Clothes.Top].id = tops[Rand.Next(tops.Count)];
+                        topChanged = true;
+                    }
+                } else
+                {
+                    currParts[Clothes.Top].id = _strictUniform;
                     topChanged = true;
                 }
-                
+
                 // Change Bottoms
                 if (_changeBottom && !bottoms.Contains(currParts[Clothes.Bottom].id))
                 {
@@ -657,8 +682,18 @@ namespace KK_UniformUniforms
                 if (apply == Apply.Card && _currClassData != null && chaData.schoolClassIndex != _currClassData.data.schoolClassIndex) continue;
                 if (!((SaveData.Heroine)chaData).isTeacher)
                 {
-                    SetRandomClothes(chaData.charFile);
-                    appliedNo++;
+                    if (currSchoolClass == 4)
+                    {
+                        // Set cards for Fixed Characters
+                        SetRandomClothes(_currClassData.data.charFile);
+                        appliedNo++;
+                        if (apply == Apply.Card) break;
+                    }
+                    else
+                    {
+                        SetRandomClothes(chaData.charFile);
+                        appliedNo++;
+                    }
                 }
                 if (chaData.chaCtrl != null) chaData.chaCtrl.chaFile.coordinate = chaData.charFile.coordinate;
             }
