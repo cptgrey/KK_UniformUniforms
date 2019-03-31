@@ -2,7 +2,7 @@
 
 # <img src= "https://raw.githubusercontent.com/cptgrey/KK_UniformUniforms/master/Assets/before.png">
 
-Does your local school have fifty different school uniforms? Do you ever wish their uniforms could be more... uniform? Well, consider your prayers answered!
+Does your local school have fifty different school uniforms? Do you ever wish their uniforms could be more... uniform?
 
 # <img src= "https://raw.githubusercontent.com/cptgrey/KK_UniformUniforms/master/Assets/after.png">
 
@@ -12,9 +12,8 @@ KK_UniformUniforms assigns all characters who are not wearing proper uniforms ra
 ## How does it work?
 The plugin adds a set of controls to the class menu to set a color scheme for all the characters simultaneously. When you apply this color scheme, two things happen:
 - All colors are changed to the current color scheme.
-- All non-uniform tops and bottoms are set to random school uniforms.
-- All emblems are set to the current school emblems
-- The checkboxes at the bottom lets you choose which options you want to apply.
+- All non-uniform tops and bottoms are set to random school uniforms, unless you select a specific uniform to apply.
+- Option to set uniform emblems to the current school emblem.
 
 ## UI Overview
 # <img src= "https://raw.githubusercontent.com/cptgrey/KK_UniformUniforms/master/Assets/menu.png">
@@ -22,7 +21,7 @@ The plugin adds a set of controls to the class menu to set a color scheme for al
 
 ## Planned additions:
 - Changing uniforms of background characters
-- Customizing which parts are considered a uniform.
+- Player customization of which parts are considered a uniform.
 
 ## Thanks to:
 - ManlyMarco
