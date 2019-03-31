@@ -1,6 +1,11 @@
 # KK_UniformUniforms
 
-Does your local school have fifty different school uniforms? Do you ever wish their uniforms could be more... uniform? Well, your prayers have been answered!
+# <img src= "https://raw.githubusercontent.com/cptgrey/KK_Archetypes/master/Assets/before.png">
+
+Does your local school have fifty different school uniforms? Do you ever wish their uniforms could be more... uniform? Well, consider your prayers answered!
+
+# <img src= "https://raw.githubusercontent.com/cptgrey/KK_Archetypes/master/Assets/after.png">
+
 
 KK_UniformUniforms assigns all characters who are not wearing proper schoolclothes proper uniforms, and has sliders to create a unified color theme for all attendees. 
 
@@ -11,10 +16,14 @@ The plugin adds a set of controls to the class menu to set a color scheme for al
 - All emblems are set to the current school emblems
 - The checkboxes at the bottom lets you choose which options you want to apply.
 
+## UI Overview
+# <img src= "https://raw.githubusercontent.com/cptgrey/KK_Archetypes/master/Assets/menu.png">
+# <img src= "https://raw.githubusercontent.com/cptgrey/KK_Archetypes/master/Assets/advanced_menu.png">
+
 ## Planned additions:
 - Changing uniforms of background characters
 - Customizing which parts are considered a uniform.
-- Possibly support for swimsuits / Gym clothes
+- Possibly support for swimsuits / gym clothes
 
 ## Thanks to:
 - ManlyMarco
