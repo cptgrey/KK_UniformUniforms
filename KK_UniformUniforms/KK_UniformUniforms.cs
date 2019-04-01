@@ -109,7 +109,7 @@ namespace KK_UniformUniforms
         private static bool _changeColorTop = true;
         private static bool _changeColorBottom = true;
         private static bool _changeEmblem = true;
-        private static bool _advanced = true;
+        private static bool _advanced = false;
         private static bool _changeSchool = true;
         private static bool _changeGoingHome = true;
         private static bool _changeSwimsuit = true;
