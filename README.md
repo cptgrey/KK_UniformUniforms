@@ -1,11 +1,7 @@
+![preview1](https://raw.githubusercontent.com/cptgrey/KK_UniformUniforms/master/Assets/BA.png)
 # KK_UniformUniforms
 
-# <img src= "https://raw.githubusercontent.com/cptgrey/KK_UniformUniforms/master/Assets/before.png">
-
 Does your local school have fifty different school uniforms? Do you ever wish their uniforms could be more... uniform?
-
-# <img src= "https://raw.githubusercontent.com/cptgrey/KK_UniformUniforms/master/Assets/after.png">
-
 
 KK_UniformUniforms assigns all characters who are not wearing proper uniforms random uniforms, and has sliders to create a unified color theme for all your school attendees. 
 
