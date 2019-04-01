@@ -227,7 +227,7 @@ namespace KK_UniformUniforms
                 if (_classroomScene == null) _classroomScene = Singleton<ActionGame.ClassRoomSelectScene>.Instance;
 
                 // Check if scene is visible, i.e. not currently loading a character
-                if (_classroomScene.classRoomList.isVisible)
+                if (_classroomScene != null && _classroomScene.classRoomList.isVisible)
                 {
                     // Get PreviewClassData instance
                     Traverse enterPreview = Traverse.Create(_classroomScene.classRoomList).Field("enterPreview");
@@ -246,7 +246,7 @@ namespace KK_UniformUniforms
             {
                 // Reset stored classroom scene and disable gui
                 _classroomScene = null;
-                _guiVisible = true;
+                _guiVisible = false;
             }
         }
 
