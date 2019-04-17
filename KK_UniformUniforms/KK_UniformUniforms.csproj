@@ -101,6 +101,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utilities.cs" />
+    <Compile Include="Clothes.cs" />
+    <Compile Include="Colors.cs" />
+    <Compile Include="Default.cs" />
+    <Compile Include="Outfits.cs" />
+    <Compile Include="UI.cs" />
     <Compile Include="KK_UniformUniforms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
