@@ -19,9 +19,9 @@ The plugin adds a set of controls to the class roster enabling players to set a 
 - Changing uniforms of background characters
 - Player customization of which parts are considered a uniform.
 
-## Thanks to:
-- ManlyMarco
-- Anon11 (aka DeathWeasel1337)
+## Special thanks to:
+- [ManlyMarco](https://github.com/ManlyMarco)
+- [Anon11 (a.k.a. DeathWeasel1337)](https://github.com/DeathWeasel1337)
+- [bbepis](https://github.com/bbepis)
 - essu
-- bbepis
 - The community in general :)
